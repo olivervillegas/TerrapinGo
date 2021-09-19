@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TerrapinGo</string>
+    <string name="challenges">Challenges</string>
+    <string name="information">Information</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_dashboard">dashboard</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="information_message">Mission Statement: \'Our goal is to provide the University of
+        Maryland community with options and incentives that encourage the use of sustainable
+        transportation.\'</string>
+    <string name="information_header">WHY TERRAPIN GO?</string>
+    <string name="challenges_header">THE CHALLENGES</string>
+</resources>

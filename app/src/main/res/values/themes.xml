@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.TerrapinGo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/terpBlack</item>
+        <item name="colorPrimaryVariant">@color/terpRed</item>
+        <item name="colorOnPrimary">@color/terpYellow</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/terpBlack</item>
+        <item name="colorSecondaryVariant">@color/terpRed</item>
+        <item name="colorOnSecondary">@color/terpYellow</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

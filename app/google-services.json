@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "717106947091",
+    "project_id": "terrapingo-bed04",
+    "storage_bucket": "terrapingo-bed04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717106947091:android:c0f96b6276d19f906e0be6",
+        "android_client_info": {
+          "package_name": "com.example.terrapingo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991889699168-rar4mt5mcn1i88i5gaepjmlvg4tta5c0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.terrapingo",
+            "certificate_hash": "51843274ff2da1661d9c8926460ee42affded408"
+          }
+        },
+        {
+          "client_id": "717106947091-7h13hknte7m21gsqibsjt006g6ls4cpg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp6B7w0iBGqhQ80zAouPbrRoaR1WFxHuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717106947091-7h13hknte7m21gsqibsjt006g6ls4cpg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
