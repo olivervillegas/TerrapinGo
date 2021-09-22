@@ -20,13 +20,16 @@
         android:id="@+id/infoFragment2"
         android:name="com.example.terrapingo.InfoFragment"
         android:label="fragment_info"
-        tools:layout="@layout/fragment_info" >
+        tools:layout="@layout/fragment_info">
         <action
             android:id="@+id/action_infoFragment2_to_homeFragment"
             app:destination="@id/homeFragment" />
         <action
             android:id="@+id/action_infoFragment2_to_challengesFragment"
             app:destination="@id/challengesFragment" />
+        <deepLink
+            android:id="@+id/deepLink3"
+            app:uri="example.com" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"

@@ -32,7 +32,7 @@ class ChallengesActivity : AppCompatActivity() {
             val email = firebaseUser.email
             val name = firebaseUser.displayName
             //set email
-            binding.emailTv.text = name
+            //binding.emailTv.text = name
         }
     }
 }

@@ -28,16 +28,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/emailTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
 
         <FrameLayout
+            android:id="@+id/nav_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/nav_host_fragment"
+                android:id="@+id/container"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="0dp"
                 android:layout_height="0dp"

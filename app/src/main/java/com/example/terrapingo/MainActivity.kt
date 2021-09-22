@@ -10,11 +10,16 @@ import androidx.core.app.ActivityCompat.startActivityForResult
 
 import android.content.Intent
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
 import com.example.terrapingo.databinding.ActivityMainBinding
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
@@ -35,7 +40,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-       //setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
+
 
         //configure Google SignIn
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -57,10 +63,6 @@ class MainActivity : AppCompatActivity() {
             val intent = googleSignInClient.signInIntent
             startActivityForResult(intent, RC_SIGN_IN)
         }
-
-
-
-
         //updateUI(account)
     }
 

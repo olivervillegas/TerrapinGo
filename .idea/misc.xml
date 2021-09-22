@@ -17,13 +17,14 @@
         <entry key="app/src/main/res/drawable/selector.xml" value="0.12239583333333333" />
         <entry key="app/src/main/res/layout/activity_challenges.xml" value="0.11911231884057971" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_challenges.xml" value="0.10914855072463768" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/layout/fragment_info.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_info_screen.xml" value="0.15364583333333334" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.335" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.335" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1675925925925926" />
