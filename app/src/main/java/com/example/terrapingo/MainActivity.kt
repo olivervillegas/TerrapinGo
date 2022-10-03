@@ -1,27 +1,22 @@
 package com.example.terrapingo
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.common.SignInButton
-import androidx.core.app.ActivityCompat.startActivityForResult
-
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import com.example.terrapingo.databinding.ActivityMainBinding
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.firestoreSettings
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     //val default_web_client_id = "991889699168-rar4mt5mcn1i88i5gaepjmlvg4tta5c0.apps.googleusercontent.com";
@@ -30,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firebaseFirestore: FirebaseFirestore
 
     private companion object{
         private const val RC_SIGN_IN = 100
@@ -110,6 +106,7 @@ class MainActivity : AppCompatActivity() {
                 //get user info
                 val uid = firebaseUser!!.uid
                 val email = firebaseUser!!.email
+                val name = firebaseUser!!.displayName
 
                 val split: List<String>? = email?.split("@")
                 val domain = split?.get(1) //This Will Give You The Domain After '@'
@@ -127,11 +124,14 @@ class MainActivity : AppCompatActivity() {
                         //user is new - Account created
                         Log.d(TAG, "firebaseAuthWithGoogleAccount: Account created... \n$email")
                         Toast.makeText(this@MainActivity, "Account created...\n$email", Toast.LENGTH_SHORT).show()
+
+                        storeUser(uid, email, name)
                     }
                     else{
                         //existing user - loggedIn
                         Log.d(TAG, "firebaseAuthWithGoogleAccount: Existing user...\n$email")
                         Toast.makeText(this@MainActivity, "LoggedIn...\n$email", Toast.LENGTH_SHORT).show()
+                        storeUser(uid, email, name)
                     }
                     //start Home activity
                     startActivity(Intent(this@MainActivity, HomeActivity::class.java))
@@ -150,5 +150,33 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG, "firebaseAuthWithGoogleAccount: Login failed due to ${e.message}")
                 Toast.makeText(this@MainActivity, "Login Failed due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun storeUser(uid: String, email: String?, name: String?) {
+        initDB()
+
+        val user = hashMapOf(
+            "email" to email,
+            "name" to name,
+            "uid" to uid
+        )
+
+        firebaseFirestore.collection("users").document(uid)
+            .set(user)
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+    }
+
+    private fun initDB(){
+        // [START get_firestore_instance]
+        firebaseFirestore = Firebase.firestore
+        // [END get_firestore_instance]
+
+        // [START set_firestore_settings]
+        val settings = firestoreSettings {
+            isPersistenceEnabled = true
+        }
+        firebaseFirestore.firestoreSettings = settings
+        // [END set_firestore_settings]
     }
 }
